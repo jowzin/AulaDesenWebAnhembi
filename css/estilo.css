@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+html, body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+#formulario input, #formulario textarea {
+    border-bottom: 3px solid #6c757d !important;
+}
+
+.btn-azul {
+    background-color: #6c757d;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.btn-azul:hover {
+    transform: scale(1.1);
+    background-color: #37678a;
+    color: white;
+}
+
+.bg-azul {
+    background-color: #6c757d;
+}
+
+
+.footer {
+    position:absolute !important ;
+    bottom:0 !important ;
+    width:100% !important ;
+}
