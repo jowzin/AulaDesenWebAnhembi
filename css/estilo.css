@@ -62,7 +62,7 @@ html, body {
     text-align: center;
     margin-left: 400px;
     margin-right: 750px;
-    margin-bottom: 100%;
+    margin-bottom: 10%;
 }
 
 .cardItemColumn {
@@ -78,7 +78,7 @@ html, body {
 .modalidades {
     width: 150px; 
     padding: 5px;
-    margin-left: 10px;
+    margin-left: 80px;
 }
 
 .Login {
