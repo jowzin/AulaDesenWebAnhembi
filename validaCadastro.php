@@ -16,11 +16,11 @@
 
                                      
     if($_SESSION['AdminUser'] == 'SIM'){
-        unset($_SESSION['AdminUser']);
+        $_SESSION['AdminUser'] = 'NAO';
         // unset($_SESSION['autenticado']);
         header('Location: admin.php');
     }else if ($_SESSION['AtualizaUser'] == 'SIM'){
-        unset($_SESSION['AtualizaUser']);
+        $_SESSION['AtualizaUser'] = 'NAO';
         header('Location: index.php');
     }else{
         header('Location: login.php');
