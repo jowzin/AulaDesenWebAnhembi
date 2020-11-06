@@ -51,8 +51,12 @@
 							<a  class="nav-link" href="login.php">Login/Cadastro</a>
 						</li>
 						<?php   } ?>
-						<?php if($_SESSION['autenticado']== 'SIM') { ?>
+						<?php if($_SESSION['autenticado'] == 'SIM' && $_SESSION['autenticado_admin'] != 'SIM') { ?>
 							<a  class="nav-link" href="user.php">Meus Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado_admin'] == 'SIM') { ?>
+							<a  class="nav-link" href="admin.php">Gerenciar Dados</a>
 						</li>
 						<?php   } ?>
 						<?php if($_SESSION['autenticado']== 'SIM') { ?>
@@ -133,8 +137,8 @@ function editar(){
 
        print_r($vetor);
        $_SESSION['AdminUser'] = 'SIM';
-
-      header('Location: user.php?admin_'.$_SESSION['AdminUser']); //COMO SABER QUE FOI O ADMIN OU NAO PARA O CADASTRO E ALTERAR PARA ONDE VAI DEPOIS DE CADASTRAR
+       $_SESSION['autenticado'] = 'SIM' ; //teste
+      header('Location: user.php?admin_');
 
     } else{
       echo('Não foi encontrado um usuario email:');

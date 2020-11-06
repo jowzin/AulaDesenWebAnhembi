@@ -26,6 +26,7 @@
                                      
     if($_SESSION['AdminUser'] == 'SIM'){
         unset($_SESSION['AdminUser']);
+        unset($_SESSION['autenticado']);
         header('Location: admin.php');
     }else if ($_SESSION['AtualizaUser'] == 'SIM'){
         unset($_SESSION['AtualizaUser']);

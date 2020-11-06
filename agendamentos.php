@@ -29,19 +29,19 @@
 </head>
   <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">SayaGym</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="agendamentos.php">Agendamentos</a> 
-          </li>
+			<div class="container">
+			  <a class="navbar-brand" href="index.php">SayaGym</a>
+			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.php">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="agendamentos.php">Agendamentos</a>
+						</li>
 						<li class="nav-item" >
 							<a  class="nav-link" href="sobre.php">Sobre</a>
 						</li>
@@ -50,18 +50,22 @@
 							<a  class="nav-link" href="login.php">Login/Cadastro</a>
 						</li>
 						<?php   } ?>
-						<?php if($_SESSION['autenticado']== 'SIM') { ?>
+						<?php if($_SESSION['autenticado'] == 'SIM' && $_SESSION['autenticado_admin'] != 'SIM') { ?>
 							<a  class="nav-link" href="user.php">Meus Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado_admin'] == 'SIM') { ?>
+							<a  class="nav-link" href="admin.php">Gerenciar Dados</a>
 						</li>
 						<?php   } ?>
 						<?php if($_SESSION['autenticado']== 'SIM') { ?>
 						<li class="nav-item" >
-							<a  class="nav-link" href="login.php">Log Off</a>
+							<a  class="nav-link" href="logoff.php">Log Off</a>
 						</li>
 						<?php   } ?>
-        </ul>
-      </div>
-    </div>
+					</ul>
+				</div>
+			</div>
   </nav>
     <header class="bg-secondary text-white">
 			<div class="container text-center">

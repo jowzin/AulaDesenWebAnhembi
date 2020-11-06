@@ -43,6 +43,7 @@ $usuario_autenticado = false;
 
     else if($usuario_autenticado_admin){
         $_SESSION['autenticado_admin'] = 'SIM';
+        $_SESSION['autenticado'] = 'SIM';
         echo 'AUTENTICADO ADMIN';
         // $_SESSION['x'] = 'um valor';
         // $_SESSION['y'] = 'outro valor';

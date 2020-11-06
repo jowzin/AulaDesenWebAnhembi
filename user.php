@@ -141,7 +141,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
 			  <a class="navbar-brand" href="index.php">SayaGym</a>
 			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -163,8 +163,12 @@
 							<a  class="nav-link" href="login.php">Login/Cadastro</a>
 						</li>
 						<?php   } ?>
-						<?php if($_SESSION['autenticado']== 'SIM') { ?>
+						<?php if($_SESSION['autenticado'] == 'SIM' && $_SESSION['autenticado_admin'] != 'SIM') { ?>
 							<a  class="nav-link" href="user.php">Meus Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado_admin'] == 'SIM') { ?>
+							<a  class="nav-link" href="admin.php">Gerenciar Dados</a>
 						</li>
 						<?php   } ?>
 						<?php if($_SESSION['autenticado']== 'SIM') { ?>
@@ -196,7 +200,7 @@
                     </div>
                     <div class="col-9 col-xs-9 col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-8 mt-3">
                         <label for="email" class="col-form-label">E-mail:</label>
-                        <input type="email" disabled class="form-control"  value="<?= $vetor['email']?>" id="email" name="email" maxlength="70" tabindex="2">
+                        <input type="email" enabled = false class="form-control"  value="<?= $vetor['email']?>" id="email" name="email" maxlength="70" tabindex="2">
                     </div>
 
                 <div class="row my-3 justify-content-center">

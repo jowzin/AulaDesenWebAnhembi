@@ -33,7 +33,7 @@
 
 	</head>
 	<body>
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
 			  <a class="navbar-brand" href="index.php">SayaGym</a>
 			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,20 +55,23 @@
 							<a  class="nav-link" href="login.php">Login/Cadastro</a>
 						</li>
 						<?php   } ?>
-						<?php if($_SESSION['autenticado']== 'SIM') { ?>
+						<?php if($_SESSION['autenticado'] == 'SIM' && $_SESSION['autenticado_admin'] != 'SIM') { ?>
 							<a  class="nav-link" href="user.php">Meus Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado_admin'] == 'SIM') { ?>
+							<a  class="nav-link" href="admin.php">Gerenciar Dados</a>
 						</li>
 						<?php   } ?>
 						<?php if($_SESSION['autenticado']== 'SIM') { ?>
 						<li class="nav-item" >
 							<a  class="nav-link" href="logoff.php">Log Off</a>
-							
 						</li>
 						<?php   } ?>
 					</ul>
 				</div>
 			</div>
-		</nav>
+  </nav>
 
 		<header>
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
