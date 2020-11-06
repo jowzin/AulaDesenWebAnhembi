@@ -13,29 +13,9 @@
     if($user['email'] == $_SESSION["email_atual"]){
       $vetor = $user;
       $contadorExcluir = $cont;
-    //   echo( 'CONTADOR EEXCLUIRR --------------------------->'.$contadorExcluir);
     }
     $cont ++;
-    // echo( 'CONTADOR '.$cont );
-    // echo( '<br><br> ');
   }
-
-// if(isset($_SESSION['usuarios'])){
-    // $var = array_search($_SESSION["email_atual"], array_column($_SESSION['usuarios'], 'email'));
-    // if(false !== $var){
-    //     // echo('$FUNCIONOUUUU');
-    //     $vetor = $_SESSION['usuarios'][$var+1];
-    //     // var_dump($vetor);
-    // } 
-    // $email =  $vetor['email'];
-    // $senha = $vetor['senha'];
-    // $dataNasc = $vetor['dataNasc'];
-    // $tel = $vetor['tel'];
-    // $telRes = $vetor['telRes'];
-    // $sexo = $vetor['sexo'];
-    // $estadoCivil = $vetor['estadoCivil'];
-    // $endereco = $vetor['endereco'];
-// }
 ?>
 
 <!doctype html>
@@ -121,14 +101,6 @@
             }
 
              <?php
-             //unset($_SESSION['usuarios'][$var+1]) 
-                // session_start();
-                // unset($_SESSION['usuarios'][$contadorExcluir]);
-                // sort( $_SESSION['usuarios'] );
-                //  $_SESSION['usuarios'][$var+1] = 
-                // $_SESSION['usuarios'][$contadorExcluir] = array('email' => $_POST['email'], 'senha' => $_POST['senha'], 'dataNasc' => $_POST['dataNasc'], 'tel' => $_POST['tel']
-                // ,'telRes' => $_POST['telRes'], 'sexo' => $_POST['sexo'], 'estadoCivil' => $_POST['estadoCivil'], 'endereco' => $_POST['endereco'], 
-                //  'nome' => $_POST['nome']);
                 $_SESSION['AtualizaUser'] = 'SIM';
                 $_SESSION['ContUser'] = $contadorExcluir;
              ?>

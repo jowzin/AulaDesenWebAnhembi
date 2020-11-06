@@ -4,7 +4,6 @@
 	 if(!isset($_SESSION['autenticado']) || ($_SESSION['autenticado']) != 'SIM'){
 	 	header('Location: login.php?Login>CadastrePrimeiro'); 
 	 }
-	// print_r($_SESSION['autenticado']);
 ?>
 <!DOCTYPE html>
 <html lang="br">

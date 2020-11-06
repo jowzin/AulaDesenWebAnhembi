@@ -1,11 +1,3 @@
-<?php
-    // session_start();
-
-	// if(!isset($_SESSION['autenticado']) || ($_SESSION['autenticado']) != 'SIM'){
-	// 	header('Location: login.php?Login>erro2'); 
-	// }
-?>
-
 <!doctype html>
 <html lang="pt-br">
 

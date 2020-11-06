@@ -4,11 +4,6 @@
      if(!isset($_SESSION['autenticado_admin']) || ($_SESSION['autenticado_admin']) != 'SIM'){
       header('Location: login.php?Login>CadastrePrimeiro'); 
     }
-   // print_r($_SESSION['autenticado']);
-	// if(!isset($_SESSION['autenticado']) || ($_SESSION['autenticado']) != 'SIM'){
-	// 	header('Location: login.php?Login>erro2'); 
-	// }
-	// print_r($_SESSION['autenticado']);
 ?>
 
 <!doctype html>
@@ -76,25 +71,9 @@
     <h1>Nome Usuários</h1>
                      
     <?php    
-// $dados = array(
-//     array('email' => '1234'),
-//     array('email' => '1234'),
-//     array('email' => '1234'),
-//     array('email' => '1234'),
-//     array('email' => '1234'),
-//     array('email' => '1234'),
-// );
 
 $dados = array();
 
-// // foreach($_SESSION['usuarios'] as $user2 ){
-// //     // print_r($user2['email']);
-// //     array_push($dados , array( 'email' => $user2['email'] )) ;
-// // }
-// $dados = $_SESSION['usuarios'];
-// // var_dump($dados );
-
-// $colunas = array_keys($dados[0]);
 ?>
 
 <form method="POST" id="form-pesquisa" action="">
@@ -126,8 +105,6 @@ function editar(){
   foreach($_SESSION['usuarios'] as $user ){
     if($user['email'] == $_POST["pesquisa"]){
       $vetor = $user;
-      // echo('<br><br>');
-      // echo('CONTADOR EXCLUIR ----> '. $contadorExcluir .'<br><br>');
     }
   }
     if(isset($vetor)){
@@ -137,7 +114,7 @@ function editar(){
 
        print_r($vetor);
        $_SESSION['AdminUser'] = 'SIM';
-       $_SESSION['autenticado'] = 'SIM' ; //teste
+       $_SESSION['autenticado'] = 'SIM' ; 
       header('Location: user.php?admin_');
 
     } else{
@@ -149,27 +126,18 @@ if(isset($_POST['btn_Excluir'])){
   excluir();
 }
 function excluir(){
-  // echo('<br><br>');
-  // echo('POSICAO 0 ');
-  // echo('<br>');
-  // print_r($_SESSION['usuarios'][0]);
-  // echo('<br><br><br>');
   $cont = 0;
   $contadorExcluir;    
 foreach($_SESSION['usuarios'] as $user ){
   if($user['email'] == $_POST["pesquisa"]){
     $contadorExcluir = $cont;
-    // echo('<br><br>');
-    // echo('CONTADOR EXCLUIR ----> '. $contadorExcluir .'<br><br>');
   }
   $cont ++;
 }
   if(isset($contadorExcluir)){
-    // var_dump($_SESSION['usuarios']);
      unset($_SESSION['usuarios'][$contadorExcluir]);
      sort( $_SESSION['usuarios'] );
     echo('<br>Usuário de email:'.$_POST["pesquisa"].' foi apagado<br><br>');
-    // var_dump($_SESSION['usuarios']);
   }else{
     echo('Não existe este usuário');
   }
@@ -177,7 +145,6 @@ foreach($_SESSION['usuarios'] as $user ){
 
 if(isset($_POST['btn_consultar_u'])){
 
-    //  echo($_POST["pesquisa"]);
   foreach($_SESSION['usuarios'] as $user ){
     if($user['email'] == $_POST["pesquisa"]){
       $vetor = $user;

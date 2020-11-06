@@ -1,18 +1,6 @@
 <?php
      session_start();
 
-	// if(!isset($_SESSION['autenticado']) || ($_SESSION['autenticado']) != 'SIM'){
-	// 	header('Location: login.php?Login>erro2'); 
-	// print_r($_SESSION['autenticado']);
-
-	// // $var = array_search($_SESSION["email_atual"], array_column($_SESSION['usuarios'], 'email'));
-    // if(false !== $var){
-    //     // echo('$FUNCIONOUUUU');
-    //     $vetor = $_SESSION['usuarios'][$var];
-    //     var_dump($vetor);
-	// } 
-	
-	// }
 ?>
 
 <!DOCTYPE html>
