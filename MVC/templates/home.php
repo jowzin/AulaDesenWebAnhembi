@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="br">
 
@@ -10,37 +12,51 @@
 
 	  <title>SayaGym</title>
 
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		<link href="css/modern-business.css" rel="stylesheet">
+		<link href="../../css/modern-business.css" rel="stylesheet">
 
 	</head>
-
 	<body>
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
-			  <a class="navbar-brand" href="index.html">SayaGym</a>
+			  <a class="navbar-brand" href="home.php">SayaGym</a>
 			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="home.php">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="agendamentos.html">Agendamentos</a>
+							<a class="nav-link" href="agendamentos.php">Agendamentos</a>
 						</li>
 						<li class="nav-item" >
-							<a  class="nav-link" href="sobre.html">Sobre</a>
+							<a  class="nav-link" href="sobre.php">Sobre</a>
 						</li>
 						<li class="nav-item" >
-							<a  class="nav-link" href="login.html">Login/Cadastro</a>
+						<?php if($_SESSION['autenticado']=='NAO' || $_SESSION['autenticado'] == NULL) { ?>
+							<a  class="nav-link" href="login.php">Login/Cadastro</a>
 						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado'] == 'SIM' && $_SESSION['autenticado_admin'] != 'SIM') { ?>
+							<a  class="nav-link" href="../templates/usuarios/ver.php">Meus Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado_admin'] == 'SIM') { ?>
+							<a  class="nav-link" href="admin.php">Gerenciar Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado']== 'SIM') { ?>
+						<li class="nav-item" >
+							<a  class="nav-link" href="../logoff.php">Log Off</a>
+						</li>
+						<?php   } ?>
 					</ul>
 				</div>
 			</div>
-		</nav>
+  </nav>
 
 		<header>
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -50,19 +66,19 @@
 						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 					</ol>
 				<div class="carousel-inner" role="listbox">
-					<div class="carousel-item active" style="background-image: url('imagens/img_02.jpg')">
+					<div class="carousel-item active" style="background-image: url('../../imagens/img_02.jpg')">
 					  <div class="carousel-caption d-none d-md-block">
 						<h3 >Bem vindo a SAYAGYM</h3>
 						<p>Liberte o seu SAYAGYM interior</p>
 					  </div>
 					</div>
-					<div class="carousel-item" style="background-image: url('imagens/img_01.jpg')">
+					<div class="carousel-item" style="background-image: url('../../imagens/img_01.jpg')">
 					  <div class="carousel-caption d-none d-md-block">
 						<h3>BE STRONG</h3>
 						<p></p>
 					  </div>
 					</div>
-					<div class="carousel-item" style="background-image: url('imagens/img_24.jpg')">
+					<div class="carousel-item" style="background-image: url('../../imagens/img_24.jpg')">
 						<div class="carousel-caption d-none d-md-block">
 							<h3>EXALANDO ENERGIA</h3>
 							<p></p>
@@ -124,7 +140,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-					<a href="#"><img class="card-img-top" src="imagens/img_04.png" alt=""></a>
+					<a href="#"><img class="card-img-top" src="../../imagens/img_04.png" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">10 alimentos que combatem a depressão</a>
@@ -135,7 +151,7 @@
 				</div>
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="imagens/img_05.png" alt=""></a>
+							<a href="#"><img class="card-img-top" src="../../imagens/img_05.png" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Qual a diferença entre emagrecer e perder peso?</a>
@@ -146,7 +162,7 @@
 				</div>
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="imagens/img_06.jpg" alt=""></a>
+						<a href="#"><img class="card-img-top" src="../../imagens/img_06.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">O que é o treino GVT ?</a>
@@ -157,7 +173,7 @@
 				</div>
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="imagens/img_07.png" alt=""></a>
+						<a href="#"><img class="card-img-top" src="../../imagens/img_07.png" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 							<a href="#">Benefícios da meditação e como começar</a>
@@ -168,7 +184,7 @@
 				</div>
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="imagens/img_09.png" alt="" height="200/" ></a>
+						<a href="#"><img class="card-img-top" src="../../imagens/img_09.png" alt="" height="200/" ></a>
 						<div class="card-body">
 							<h4 class="card-title">
 							<a href="#">Perda de força muscular em idosos: como desacelerar esse processo</a>
@@ -179,7 +195,7 @@
 				</div>
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="imagens/img_08.jpg" alt="" height="200" ></a>
+						<a href="#"><img class="card-img-top" src="../../imagens/img_08.jpg" alt="" height="200" ></a>
 						<div class="card-body">
 							<h4 class="card-title">
 							<a href="#">Top 10 maiores fisiculturistas da história</a>
@@ -201,7 +217,7 @@
 					<p>Essas foram algumas das atividades que realizamos na SAYAGYM caso queira mais informações por gentileza acessar o link "Sobre" que se encontra no topo do site.</p>
 				</div>
 				<div class="col-lg-6">
-					<img class="img-fluid rounded" src="imagens/img_10.png" alt="">
+					<img class="img-fluid rounded" src="../../imagens/img_10.png" alt="">
 				</div>
 			</div>
 
@@ -215,7 +231,7 @@
 			</div>
 		</footer>
 
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="../../vendor/jquery/jquery.min.js"></script>
+		<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	</body>
 </html>

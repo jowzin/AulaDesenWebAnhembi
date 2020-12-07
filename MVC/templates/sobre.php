@@ -1,3 +1,8 @@
+<?php
+     session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="br">
 	<head>
@@ -9,39 +14,53 @@
 
 		<title>SayaGym</title>
 
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		<link href="css/scrolling-nav.css" rel="stylesheet">
+		<link href="../../css/scrolling-nav.css" rel="stylesheet">
 
 	</head>
 
 	<body>
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
-			  <a class="navbar-brand" href="index.html">SayaGym</a>
+			  <a class="navbar-brand" href="home.php">SayaGym</a>
 			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="home.php">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="agendamentos.html">Agendamentos</a>
+							<a class="nav-link" href="agendamentos.php">Agendamentos</a>
 						</li>
 						<li class="nav-item" >
-							<a  class="nav-link" href="sobre.html">Sobre</a>
+							<a  class="nav-link" href="sobre.php">Sobre</a>
 						</li>
 						<li class="nav-item" >
-							<a  class="nav-link" href="login.html">Login/Cadastro</a>
+						<?php if($_SESSION['autenticado']=='NAO' || $_SESSION['autenticado'] == NULL) { ?>
+							<a  class="nav-link" href="login.php">Login/Cadastro</a>
 						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado'] == 'SIM' && $_SESSION['autenticado_admin'] != 'SIM') { ?>
+							<a  class="nav-link" href="../templates/usuarios/ver.php">Meus Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado_admin'] == 'SIM') { ?>
+							<a  class="nav-link" href="admin.php">Gerenciar Dados</a>
+						</li>
+						<?php   } ?>
+						<?php if($_SESSION['autenticado']== 'SIM') { ?>
+						<li class="nav-item" >
+							<a  class="nav-link" href="../logoff.php">Log Off</a>
+						</li>
+						<?php   } ?>
 					</ul>
 				</div>
 			</div>
-		</nav>
-
+  </nav>
 		<header class="bg-secondary text-white">
 			<div class="container text-center">
 			  <h1>Tudo o que você precisa saber sobre a SayaGym</h1>
@@ -52,7 +71,7 @@
 		<section id="about">
 			<div class="container">
 					<div class="col-lg-6">
-						<img align = "left" class="img-fluid rounded" src="imagens/img_28.jpg" alt="">
+						<img align = "left" class="img-fluid rounded" src="../../imagens/img_28.jpg" alt="">
 					</div>
 				<div class="row">
 					<div class="col-lg-10 mx-auto">
@@ -71,7 +90,7 @@
 						<p class="lead">O nosso propósito é mudar vidas, fazer com que as pessoas olhem a vida de um jeito diferente, fazer com que elas trilhem seu caminho de campeão!</p>
 					</div>
 						<div class="col-lg-6">
-							<img class="img-fluid rounded" src="imagens/img_17.png" alt="">
+							<img class="img-fluid rounded" src="../../imagens/img_17.png" alt="">
 						</div>
 				</div>
 			</div>
@@ -81,7 +100,7 @@
 			<div class="container">
 				<div class="row">
 						<div class="col-lg-6">
-							<img align = "left" class="img-fluid rounded" src="imagens/img_25.jpeg" alt="">
+							<img align = "left" class="img-fluid rounded" src="../../imagens/img_25.jpeg" alt="">
 						</div>
 					<div class="col-lg-6 mx-auto">
 						<h2>Visão</h2>
@@ -105,7 +124,7 @@
 						</ul>
 					</div>
 					<div class="col-lg-6">
-						<img class="img-fluid rounded" src="imagens/img_27.jpg" alt="">
+						<img class="img-fluid rounded" src="../../imagens/img_27.jpg" alt="">
 					</div>
 				</div>
 			</div>
@@ -114,7 +133,7 @@
 		<section>
 			<div class="container">
 					<div class="col-lg-6">
-						<img align = "left" class="img-fluid rounded" src="imagens/img_29.jpg" alt="">
+						<img align = "left" class="img-fluid rounded" src="../../imagens/img_29.jpg" alt="">
 					</div>
 				<div class="row">
 					<div class="col-lg-10 mx-auto">
@@ -140,24 +159,24 @@
 					<table width = "100%" align = "center" cellpadding = "5">
 						<tr>
 							<td>
-								<a href="https://extracorporeal-lees.000webhostapp.com/"><img class="card-img-top" src="imagens/img_11.png" alt=""></a>
+								<a href="https://extracorporeal-lees.000webhostapp.com/"><img class="card-img-top" src="../../imagens/img_11.png" alt=""></a>
 							</td>
 							<td>
-								<a href="https://giovanijavarini.000webhostapp.com/"><img class="card-img-top" src="imagens/img_12.png" alt=""></a>
+								<a href="https://giovanijavarini.000webhostapp.com/"><img class="card-img-top" src="../../imagens/img_12.png" alt=""></a>
 							</td>
 							<td>
-								<a href="https://joaomarcusmartinsreis.000webhostapp.com/"><img class="card-img-top" src="imagens/img_13.png" alt=""></a>
+								<a href="https://joaomarcusmartinsreis.000webhostapp.com/"><img class="card-img-top" src="../../imagens/img_13.png" alt=""></a>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<a href="http://curriculojonathannascimento.000webhostapp.com/"><img class="card-img-top" src="imagens/img_16.png" alt=""></a>
+								<a href="http://curriculojonathannascimento.000webhostapp.com/"><img class="card-img-top" src="../../imagens/img_16.png" alt=""></a>
 							</td>
 							<td>
-								<a href="https://uniform-hammers.000webhostapp.com/"><img class="card-img-top" src="imagens/img_15.png" alt=""></a>
+								<a href="https://uniform-hammers.000webhostapp.com/"><img class="card-img-top" src="../../imagens/img_15.png" alt=""></a>
 							</td>
 							<td>
-								<a href="https://curriculoleandrolima.000webhostapp.com/index.html"><img class="card-img-top" src="imagens/img_14.png" alt=""></a>
+								<a href="https://curriculoleandrolima.000webhostapp.com/"><img class="card-img-top" src="../../imagens/img_14.png" alt=""></a>
 							</td>
 						</tr>
 					</table>
@@ -191,12 +210,12 @@
 			</div>
 		</footer>
 
-	  <script src="vendor/jquery/jquery.min.js"></script>
-	  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	  <script src="../../vendor/jquery/jquery.min.js"></script>
+	  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-	  <script src="js/scrolling-nav.js"></script>
+	  <script src="../../js/scrolling-nav.js"></script>
 
 	</body>
 </html>

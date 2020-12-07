@@ -9,6 +9,6 @@
     $_SESSION['usuarios'] = $auxiliar;
 
 
-     header('Location: index.php'); 
+     header('Location: templates/home.php'); 
 
 ?>
